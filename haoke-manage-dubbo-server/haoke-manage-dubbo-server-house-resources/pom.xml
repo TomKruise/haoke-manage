@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>resources-dubbo-interface</module>
-        <module>resources-dubbo-service</module>
+        <module>resources-dubbo-com.tom.haoke.dubbo.server.service</module>
     </modules>
 
     <properties>
