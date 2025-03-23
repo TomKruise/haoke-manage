@@ -1,6 +1,7 @@
 package com.tom.haoke.dubbo.api.controller;
 
 import com.tom.haoke.dubbo.api.service.HouseResourcesService;
+import com.tom.haoke.dubbo.api.vo.TableResult;
 import com.tom.haoke.dubbo.server.pojo.HouseResources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,25 @@ public class HouseResourcesController {
         }
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    /**
+     * 查询房源列表
+     *
+     * @param houseResources
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<TableResult> list(HouseResources houseResources,
+                                            @RequestParam(name = "currentPage",
+                                                    defaultValue = "1") Integer currentPage,
+                                            @RequestParam(name = "pageSize",
+                                                    defaultValue = "10") Integer pageSize) {
+        return ResponseEntity.ok(this.houseResourcesService.queryList(houseResources, currentPage,
+                pageSize));
     }
 
     /**
