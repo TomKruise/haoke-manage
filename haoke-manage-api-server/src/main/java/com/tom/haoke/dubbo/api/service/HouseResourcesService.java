@@ -23,4 +23,15 @@ public class HouseResourcesService {
                 queryHouseResourcesList(currentPage, pageSize, houseResources);
         return new TableResult<>(pageInfo.getRecords(), new Pagination(currentPage, pageSize, pageInfo.getTotal()));
     }
+
+    /**
+     * 根据id查询房源数据
+     *
+     * @param id
+     * @return
+     */
+    public HouseResources queryHouseResourcesById(Long id){
+        // 调用dubbo中的服务进行查询数据
+        return this.apiHouseResourcesService.queryHouseResourcesById(id);
+    }
 }

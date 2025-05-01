@@ -3,6 +3,7 @@ package com.tom.haoke.dubbo.server.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.tom.haoke.dubbo.server.pojo.HouseResources;
+import com.tom.haoke.dubbo.server.service.BaseServiceImpl;
 import com.tom.haoke.dubbo.server.service.HouseResourcesService;
 import com.tom.haoke.dubbo.server.vo.PageInfo;
 import org.apache.commons.lang3.StringUtils;
@@ -11,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
-public class HouseResourcesServiceImpl extends BaseServiceImpl implements HouseResourcesService {
+public class HouseResourcesServiceImpl extends BaseServiceImpl<HouseResources> implements HouseResourcesService {
 
     /**
      * @param houseResources
@@ -40,5 +41,10 @@ public class HouseResourcesServiceImpl extends BaseServiceImpl implements HouseR
         IPage iPage = super.queryPageList(queryWrapper, page, pageSize);
 
         return new PageInfo<HouseResources>(Long.valueOf(iPage.getTotal()).intValue(), page, pageSize, iPage.getRecords());
+    }
+
+    @Override
+    public HouseResources queryHouseResourcesById(Long id) {
+        return super.queryById(id);
     }
 }

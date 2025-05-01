@@ -1,10 +1,10 @@
-package com.tom.haoke.dubbo.server.service.impl;
+package com.tom.haoke.dubbo.server.service;
 
-import com.tom.haoke.dubbo.server.pojo.BasePojo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.tom.haoke.dubbo.server.pojo.BasePojo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
