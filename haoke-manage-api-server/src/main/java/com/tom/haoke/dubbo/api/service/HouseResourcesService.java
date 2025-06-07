@@ -34,4 +34,8 @@ public class HouseResourcesService {
         // 调用dubbo中的服务进行查询数据
         return this.apiHouseResourcesService.queryHouseResourcesById(id);
     }
+
+    public boolean update(HouseResources houseResources) {
+        return apiHouseResourcesService.update(houseResources);
+    }
 }

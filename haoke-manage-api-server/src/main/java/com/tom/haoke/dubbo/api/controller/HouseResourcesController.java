@@ -56,13 +56,22 @@ public class HouseResourcesController {
     }
 
     /**
-     * test
+     * 修改房源
      *
+     * @param houseResources json数据
      * @return
      */
-    @GetMapping
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<String> get() {
-        return ResponseEntity.ok("ok");
+    public ResponseEntity<Void> update(@RequestBody HouseResources houseResources) {
+        try {
+            boolean bool = this.houseResourcesService.update(houseResources);
+            if (bool) {
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }

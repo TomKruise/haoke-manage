@@ -32,4 +32,6 @@ public interface ApiHouseResourcesService {
      * @return
      */
     HouseResources queryHouseResourcesById(Long id);
+
+    boolean update(HouseResources houseResources);
 }
